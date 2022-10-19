@@ -1,0 +1,35 @@
+body {
+    margin: 1% 17%;
+}
+.conteiner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.buttonConteiner {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.imageConteiner {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+}
+.image {
+    margin: 1%;
+}
+.button {
+    margin: 0 0.2rem;;
+    padding: 1% 2%;
+    white-space: nowrap;
+    box-sizing: content-box;
+    cursor: pointer;
+}
+.activeFilter {
+   background-color: black; 
+   color: white;
+}
+.passiveFilter {
+    background-color: white;
+}
