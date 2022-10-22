@@ -1,77 +1,195 @@
-Расположение товаров
-===
+![MDB Logo](https://mdbootstrap.com/img/Marketing/general/logo/medium/mdb-react.png)
 
-Вам необоходимо сделать приложение для отображение товаров в интернет-магазине. Заказчик хочет, чтобы пользователь мог увидеть товары в виде карточек или в виде списка, в зависимости от того, какое расположение выберет пользователь. 
+# MDB React 5
 
-![cards view](./assets/card_view.png)
+### React 17 & Bootstrap 5 & Material Design 2.0 UI KIT
 
-## Описание проекта
+**[>> Get Started in 4 steps](https://mdbootstrap.com/docs/b5/react/getting-started/installation/)**
 
-Реализуйте компонент `Store`, который управляет состоянием приложения, (хранит список товаров в атрибуте `products`).
+**[>> MDBReact 5 Demo](https://mdbootstrap.com/docs/b5/react#demo)**
 
-Иконка разметки, которая указывает на переключение между типами расположения товаров реализована в компоненте без состояния `IconSwitch`, которому от `Store` мы передаем два свойства:
-- `icon` - название иконки, которую хотим показать. Название иконки соответствует названию класса из библиотеки [material icons](https://material.io/icons/#ic_view_module). В нашем случае это - либо `view_list`, либо `view_module`.
-- `onSwitch()` - обработчик события, который реагирует на нажатие пользователем на иконку.
+<a href="https://npmcharts.com/compare/mdb-react-ui-kit?minimal=true"> <img src="https://img.shields.io/npm/dw/mdb-react-ui-kit" alt="Downloads"></a>
+<a href="https://github.com/mdbootstrap/mdb-react-ui-kit/License.pdf"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License"></a>
+<a href="https://twitter.com/intent/tweet/?text=Thanks+@mdbootstrap+for+creating+amazing+and+free+Material+Design+for+Bootstrap+4+UI+KIT%20https://mdbootstrap.com/docs/jquery/&hashtags=javascript,code,webdesign,bootstrap"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Let%20us%20know%20you%20were%20here%21&"></a>
+<a href="https://www.youtube.com/watch?v=c9B4TPnak1A&t=6s"><img alt="YouTube Video Views" src="https://img.shields.io/youtube/views/c9B4TPnak1A?label=Bootstrap%205%20Tutorial%20Views&style=social"></a>
 
-Пример:
-```jsx
-<IconSwitch icon={"view_list"} onSwitch={() => console.log("change state here")}/>
-```
-Сами товары отображаются в компонентах без состояния `CardsView` или `ListView`.
+---
 
-Компоненту `CardsView` от `Store` мы передаем свойство `cards` - массив с данными, каждый элемент из которого затем уже отображается с помощью карточки товара `ShopCard`.
+<table>
+  <tbody>
+    <tr>
+      <td>
+          <a href="https://mdbootstrap.com/docs/b5/react/" alt="Bootstrap 5" rel="dofollow">
+          		<img src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/content/en/_mdb5/standard/about/assets/mdb5-about.jpg">
+          </a>
+      </td>
+      <td>
+        <ul>
+        <li><b>500+ material UI components</b></li>
+         <li>Super simple, 1 minute installation</li>
+         <li>Detailed docs & multiple practical examples</li>
+         <li>React 17</li>
+         <li>Huge and active community</li>
+         <li><b>MIT license - free for personal & commercial use</b></li>
+        </ul>
+      </td>
+    </tr>
+   </tbody>
+</table>
 
-Т.е. `CardsView` отображает много карточек `ShopCard`. На один товар - одна карточка `ShopCard`.
+Trusted by <b>2 000 000+</b> developers & designers. Used by companies like
 
-Компоненту `ListView` от `Store` мы передаем всего одно свойство `items` - массив с данными, каждый элемент из которого затем уже отображается с помощью `ShopItem` для товаров, которые мы хотим отобразить.
+<table>
+  <tbody>
+    <tr>
+      <td><img src="https://mdbootstrap.com/img/logo/brands/nike.png" style="width: 10px;"></td>
+      <td><img src="https://mdbootstrap.com/img/logo/brands/amazon.png" style="width: 10px;"></td>
+      <td><img src="https://mdbootstrap.com/img/logo/brands/sony.png" style="width: 10px;"></td>
+      <td><img src="https://mdbootstrap.com/img/logo/brands/samsung.png"  style="height: 40px">
+      <td><img src="https://mdbootstrap.com/img/logo/brands/airbus.png" style="height: 40px">
+      <td><img src="https://mdbootstrap.com/img/logo/brands/yahoo.png"  style="height: 40px">
+      <td><img src="https://mdbootstrap.com/img/logo/brands/deloitte.png" style="height: 40px"></div>
+      <td><img src="https://mdbootstrap.com/img/logo/brands/ge.png" style="height: 40px">
+      <td><img src="https://mdbootstrap.com/img/logo/brands/kpmg.png" style="height: 40px">
+      <td><img src="https://mdbootstrap.com/img/logo/brands/unity.png" style="height: 40px">
+      <td><img src="https://mdbootstrap.com/img/logo/brands/ikea.png" style="max-height: 40px">
+      <td><img src="https://mdbootstrap.com/img/logo/brands/aegon.png" style="height: 40px">
+    </tr>
+   </tbody>
+</table>
 
-Т.е. `ListView` отображает много `ShopItem`. На один товар - один `ShopItem`.
+---
 
-Чтобы компонент `Store` мог реагировать на выбор пользователем вида разметки, в класс `Store` необходимо добавить состояние (state).
+###### Tutorial for the latest Bootstrap v.5 Alpha. In this video we'll learn about the changes implemented into v.5.
 
-Ваша задача:
-- установить состояние выбранного типа разметки в обработчике события который `Store` передает в свойство `onSwitch` компонента `IconSwitch`
-- из компонента `Store` передать правильную иконку в свойство `icon` компонента `IconSwitch`
-- в компоненте `Store` отобразить товары в компоненте `CardsView` или `ListView` соответсвенно состоянию компонента `App`
+**[>> Click here for a written tutorial](https://mdbootstrap.com/docs/b5/react/getting-started/quick-start/)**
 
-![list_view](./assets/list_view.png)
+<table>
+  <tbody>
+    <tr>
+      <td align="center">
+          		<img src="https://mdbootstrap.com/wp-content/uploads/2020/12/learnmore-1.png">
+          </a>
+      </td>
+      <td>
+          <a href="https://mdbootstrap.com/docs/b5/react/bootstrap-5-tutorial/#section-beginner" alt="Bootstrap 5" rel="dofollow">
+          		<img src="https://mdbootstrap.com/wp-content/uploads/2020/12/cover-bootstrap-5-1.png">
+          </a>
+      </td>
+    </tr>
+     <tr>
+        <td align="center">
+          <p align="center"><b>Start to Code</b></p>
+          <a href="https://mdbootstrap.com/docs/b5/react/bootstrap-5-tutorial/#section-beginner" alt="Bootstrap 5" rel="dofollow">
+          		<img src="https://mdbootstrap.com/wp-content/uploads/2020/12/Screenshot_26.png">
+          </a>
+         </td>
+        <td align="center">
+          <p align="center"><b>Learn Bootstrap 5 | Crash Course for Beginners in 1.5H</b></p>
+          <a href="https://mdbootstrap.com/docs/b5/react/bootstrap-5-tutorial/#section-beginner" alt="Bootstrap 5" rel="dofollow">
+          		<img src="https://mdbootstrap.com/wp-content/uploads/2020/12/Screenshot_26.png">
+          </a>
+         </td>
+      </tr>
+   </tbody>
+</table>
 
-Не забудьте подключить Material Icons:
-```css
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons')
-```
+---
 
-Данные для отображения:
-```js
-const products = [{
-  name: "Nike Metcon 2",
-  price: "130",
-  color: "red",
-  img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/layouts/img/1.jpg"
-}, {
-  name: "Nike Metcon 2",
-  price: "130",
-  color: "green",
-  img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/layouts/img/2.jpg"
-}, {
-  name: "Nike Metcon 2",
-  price: "130",
-  color: "blue",
-  img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/layouts/img/3.jpg"
-}, {
-  name: "Nike Metcon 2",
-  price: "130",
-  color: "black",
-  img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/layouts/img/4.jpg"
-}, {
-  name: "Nike free run",
-  price: "170",
-  color: "black",
-  img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/layouts/img/7.jpg"
-}, {
-  name: "Nike Metcon 3",
-  price: "150",
-  color: "green",
-  img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/layouts/img/5.jpg"
-}];
-```
+# Demo
+
+#### Simplicity and ease of use are key features of MDBReact 5 UI Kit. You need only one minute to install and run it.
+
+### Buttons
+
+<p>Use MDB custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</p>
+
+<a href="https://mdbootstrap.com/docs/b5/react/components/buttons/" alt="Bootstrap 5" rel="dofollow">
+  <p align="center">
+    <img src="https://mdbootstrap.com/img/Marketing/campaigns/demo-buttons.gif">
+  </p>
+</a>
+
+<a href="https://mdbootstrap.com/docs/b5/react/components/buttons/" alt="Bootstrap 5" rel="dofollow">
+  <p align="center">
+    <img src="https://mdbootstrap.com/img/Marketing/campaigns/demo-social-buttons.png">
+  </p>
+</a>
+
+<a href="https://mdbootstrap.com/docs/b5/react/components/buttons/" alt="Bootstrap 5" rel="dofollow">
+  <p align="center">
+    <img src="https://mdbootstrap.com/img/Marketing/campaigns/demo-buttons2.png">
+  </p>
+</a>
+
+<a href="https://mdbootstrap.com/docs/b5/react/components/buttons/" alt="Bootstrap 5" rel="dofollow">
+  <p align="center">
+    <img src="https://mdbootstrap.com/img/Marketing/campaigns/demo-buttons-outline.gif">
+  </p>
+</a>
+
+### Spinners
+
+<p>Indicate the loading state of a component or page with MDB spinners, built entirely with HTML, CSS, and no JavaScript.</p>
+
+<a href="https://mdbootstrap.com/docs/b5/react/components/spinners/" alt="Bootstrap 5" rel="dofollow">
+  <p align="center">
+    <img src="https://mdbootstrap.com/img/Marketing/campaigns/demo-loader.gif">
+  </p>
+</a>
+
+<a href="https://mdbootstrap.com/docs/b5/react/components/spinners/" alt="Bootstrap 5" rel="dofollow">
+  <p align="center">
+    <img src="https://mdbootstrap.com/img/Marketing/campaigns/demo-color-spinners.gif">
+  </p>
+</a>
+
+### Cards
+
+<p>A card is a flexible and extensible content container. It includes options for headers and footers, a wide variety of content, contextual background colors, and powerful display options.</p>
+
+<a href="https://mdbootstrap.com/docs/b5/react/components/cards/" alt="Bootstrap 5" rel="dofollow">
+  <p align="center">
+    <img src="https://mdbootstrap.com/img/Marketing/campaigns/demo-cards.png">
+  </p>
+</a>
+
+### Footer
+
+<p>A footer is an additional navigation component. It can hold links, buttons, company info, copyrights, forms, and many other elements.</p>
+
+<a href="https://mdbootstrap.com/docs/b5/react/navigation/footer/" alt="Bootstrap 5" rel="dofollow">
+  <p align="center">
+    <img src="https://mdbootstrap.com/img/Marketing/campaigns/demo-footer.png">
+  </p>
+</a>
+
+### Hover
+
+<p>MDB hover effect appears when the user positions the computer cursor over an element without activating it. Hover effects make a website more interactive.</p>
+
+<a href="https://mdbootstrap.com/docs/b5/react/content-styles/hover-effects/" alt="Bootstrap 5" rel="dofollow">
+  <p align="center">
+    <img src="https://mdbootstrap.com/img/Marketing/campaigns/demo-hover.gif">
+  </p>
+</a>
+
+<a href="https://mdbootstrap.com/docs/b5/react/content-styles/hover-effects/" alt="Bootstrap 5" rel="dofollow">
+  <p align="center">
+    <img src="https://mdbootstrap.com/img/Marketing/campaigns/demo-hover2.png">
+  </p>
+</a>
+
+### Notes
+
+<p>Notes are small components very helpful in inserting an additional piece of information.</p>
+
+<a href="https://mdbootstrap.com/docs/b5/react/content-styles/typography/" alt="Bootstrap 5" rel="dofollow">
+  <p align="center">
+    <img src="https://mdbootstrap.com/img/Marketing/campaigns/demo-alerts.png">
+  </p>
+</a>
+
+</table>
+
+and more.
