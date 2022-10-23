@@ -13,8 +13,8 @@ class Portfolio extends React.Component {
         }
     }
 
-    onSelectFilter = (evt) =>{
-        this.setState({selected: evt.currentTarget.textContent})  
+    onSelectFilter = (item) =>{
+        this.setState({selected: item})  
     }
 
     render() {

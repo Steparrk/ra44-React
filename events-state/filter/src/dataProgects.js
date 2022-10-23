@@ -1,5 +1,9 @@
-
-const dataProgects = [{
+const idGenerate = (array) => {
+    let i = 0;
+    let newArray = array.filter(item => item.id = i++);
+    return newArray;
+}
+const progects = [{
         img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/mon.jpg",
         category: "Business Cards"
     }, {
@@ -51,6 +55,8 @@ const dataProgects = [{
         img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/place200x290_3.png",
         category: "Flayers"
     }]
+
+    const dataProgects = idGenerate(progects);
 
     //const dataProgects = progects.map(item => ({id: shortid.generate(), img: item.img, category: item.category}));
 
