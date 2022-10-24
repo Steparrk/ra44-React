@@ -1,9 +1,14 @@
 function Listing(props) {
     const dataItems = props.items.map(item => {
-        let titleTotal = item.title.length > 20 ? item.title.slice(0, 21) + "..." : item.title;
-        let price = getCurrencyCode(item.currency_code) + item.price;
-        let classQuantity = "item-quantity" + getLevel(item.quantity);
-        
+        if(item.state !== 'active') {
+            return null;
+        }
+        const itemActive = item;
+        const img = itemActive.MainImage.url_570xN;
+        let titleTotal = itemActive.title.length > 20 ? itemActive.title.slice(0, 20) + "..." : itemActive.title;
+        let price = getCurrencyCode(itemActive.currency_code) + itemActive.price;
+        let classQuantity = "item-quantity" + getLevel(itemActive.quantity);
+
         function getLevel(quantity) {
             if(quantity <= 10) {
                 return "level-low";
@@ -22,17 +27,17 @@ function Listing(props) {
             }
             return "GBP";
         }
-        return  (<div key={item.listing_id} className="item-list">
+        return  (<div key={itemActive.listing_id} className="item-list">
                     <div className="item">
                         <div className="item-image">
-                            <a href={item.url}>
-                                <img src={item.MainImage.url_570xN} alt="Ошибка"/>
+                            <a href={itemActive.url}>
+                                <img src={img} alt="Ошибка"/>
                             </a>
                         </div>
                         <div className="item-details">
                             <p className="item-title">{titleTotal}</p>
                             <p className="item-price">{price}</p>
-                            <p className={classQuantity}>{item.quantity}</p>
+                            <p className={classQuantity}>{itemActive.quantity}</p>
                         </div>
                     </div>
                 </div>)
