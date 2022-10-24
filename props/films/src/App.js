@@ -5,7 +5,7 @@ function App(props) {
   if(props.count < 1 || props.count > 5 || typeof props.count !== "number") {
     return null;
   }
-  return (
+  return ( 
     <Stars count={props.count}/>
   );
 }

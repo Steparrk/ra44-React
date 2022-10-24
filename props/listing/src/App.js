@@ -7,7 +7,9 @@ function App() {
   const dataParse = JSON.parse(result);
 
   return (
-   <Listing items={dataParse}/>
+    <div className="item-list">
+      <Listing items={dataParse}/>
+    </div>
   );
 }
 
