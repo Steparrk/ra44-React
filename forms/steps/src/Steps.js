@@ -8,16 +8,11 @@ function Steps({array}) {
     const handleSubmit = (evt) => {
         evt.preventDefault();
         if(data.length === 0) {
-            setData(prev => [...prev, {date: date, distance: distance}]);
+            setData([...data, {id: date, date: date, distance: distance}]);
             return;
         }
-        console.log(data)
-        if(data.find(item => item.date !== date)) {
-            setData(prev => [...prev, {date: date, distance: distance}]);
-            return;
-        }else{
-            setData(prev => ({date: date, distance: Number(prev.distance) + Number(distance)}));
-        }
+        
+        data.forEach(item => item.date !== date ? setData([...data, {id: date, date: date, distance: distance}]) : setData([{id: date, date: date, distance: distance + distance}]))
         
     }
 
@@ -28,7 +23,7 @@ function Steps({array}) {
 
     const handleChangeDistance = ({target}) => {
         const{value} = target;
-        setDistance(value);
+        setDistance(Number(value));
     }
 
     const onDelete = (date) => {
@@ -56,7 +51,7 @@ function Steps({array}) {
             <h2>Действия</h2>
             <div className="items">
                 {data.length > 0 ? data.map(item => {
-                    return(<div className="item" key={item.date}>
+                    return(<div className="item" key={item.id}>
                                 <span>{item.date}</span>
                                 <span>{item.distance}</span>
                                 <button onClick={() => onDelete(item.date)}>X</button>
