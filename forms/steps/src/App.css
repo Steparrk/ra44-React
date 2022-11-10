@@ -1,3 +1,49 @@
+#root {
+    width: 70vw;
+    margin: 0 auto;
+}
+.form {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    
+}
+h2 {
+    margin: 5% 5%;
+    text-align: center;
+
+}
+button{
+    height: 50%;
+    width: 20%;
+}
+input {
+    width: 100%;
+}
+.header {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 5%;
+}
 .items {
     display: flex;
+    flex-direction: column;
+    border: 1px black solid;
+    border-radius: 5rem;
+    padding: 5%;
 }
+.item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 1%;
+    box-sizing: border-box;
+}
+.text {
+    display: flex;
+    width: 100%;
+}
+span {
+    margin: 0 10%;
+}
+
